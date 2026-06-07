@@ -43,34 +43,41 @@
             btn_UpdateFF = new Button();
             btn_DeleteHF = new Button();
             btn_UpdateHF = new Button();
+            pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)LigneFraisForfaitDG).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ligneFraisHFDG).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(732, 28);
+            label1.Location = new Point(640, 21);
             label1.Name = "label1";
-            label1.Size = new Size(96, 20);
+            label1.Size = new Size(76, 15);
             label1.TabIndex = 0;
             label1.Text = "Fiche de frais";
             // 
             // LigneFraisForfaitDG
             // 
+            LigneFraisForfaitDG.BackgroundColor = SystemColors.ActiveCaption;
             LigneFraisForfaitDG.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            LigneFraisForfaitDG.Location = new Point(164, 111);
+            LigneFraisForfaitDG.Location = new Point(122, 83);
+            LigneFraisForfaitDG.Margin = new Padding(3, 2, 3, 2);
             LigneFraisForfaitDG.Name = "LigneFraisForfaitDG";
             LigneFraisForfaitDG.RowHeadersVisible = false;
             LigneFraisForfaitDG.RowHeadersWidth = 51;
-            LigneFraisForfaitDG.Size = new Size(441, 391);
+            LigneFraisForfaitDG.Size = new Size(408, 293);
             LigneFraisForfaitDG.TabIndex = 1;
             // 
             // btnAddFraisForfait
             // 
-            btnAddFraisForfait.Location = new Point(317, 602);
+            btnAddFraisForfait.Location = new Point(269, 452);
+            btnAddFraisForfait.Margin = new Padding(3, 2, 3, 2);
             btnAddFraisForfait.Name = "btnAddFraisForfait";
-            btnAddFraisForfait.Size = new Size(137, 56);
+            btnAddFraisForfait.Size = new Size(120, 42);
             btnAddFraisForfait.TabIndex = 2;
             btnAddFraisForfait.Text = "Ajouter un frais forfait";
             btnAddFraisForfait.UseVisualStyleBackColor = true;
@@ -78,9 +85,10 @@
             // 
             // btn_AddFraisHF
             // 
-            btn_AddFraisHF.Location = new Point(1151, 602);
+            btn_AddFraisHF.Location = new Point(992, 452);
+            btn_AddFraisHF.Margin = new Padding(3, 2, 3, 2);
             btn_AddFraisHF.Name = "btn_AddFraisHF";
-            btn_AddFraisHF.Size = new Size(137, 56);
+            btn_AddFraisHF.Size = new Size(120, 42);
             btn_AddFraisHF.TabIndex = 3;
             btn_AddFraisHF.Text = "Ajouter un frais hors forfait";
             btn_AddFraisHF.UseVisualStyleBackColor = true;
@@ -88,73 +96,76 @@
             // 
             // ligneFraisHFDG
             // 
+            ligneFraisHFDG.BackgroundColor = SystemColors.ActiveCaption;
             ligneFraisHFDG.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            ligneFraisHFDG.Location = new Point(893, 116);
+            ligneFraisHFDG.Location = new Point(714, 87);
+            ligneFraisHFDG.Margin = new Padding(3, 2, 3, 2);
             ligneFraisHFDG.Name = "ligneFraisHFDG";
             ligneFraisHFDG.RowHeadersVisible = false;
             ligneFraisHFDG.RowHeadersWidth = 51;
-            ligneFraisHFDG.Size = new Size(668, 391);
+            ligneFraisHFDG.Size = new Size(651, 293);
             ligneFraisHFDG.TabIndex = 4;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(317, 70);
+            label2.Location = new Point(269, 52);
             label2.Name = "label2";
-            label2.Size = new Size(143, 20);
+            label2.Size = new Size(112, 15);
             label2.TabIndex = 5;
             label2.Text = "Liste des frais forfait";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(1113, 70);
+            label3.Location = new Point(956, 52);
             label3.Name = "label3";
-            label3.Size = new Size(175, 20);
+            label3.Size = new Size(138, 15);
             label3.TabIndex = 6;
             label3.Text = "Liste des frais hors forfait";
             // 
             // FraisForfaitStatus
             // 
             FraisForfaitStatus.AutoSize = true;
-            FraisForfaitStatus.Location = new Point(164, 537);
+            FraisForfaitStatus.Location = new Point(122, 404);
             FraisForfaitStatus.Name = "FraisForfaitStatus";
-            FraisForfaitStatus.Size = new Size(59, 20);
+            FraisForfaitStatus.Size = new Size(47, 15);
             FraisForfaitStatus.TabIndex = 7;
             FraisForfaitStatus.Text = "Statut : ";
             // 
             // TotalPriceFraisForfait
             // 
             TotalPriceFraisForfait.AutoSize = true;
-            TotalPriceFraisForfait.Location = new Point(164, 517);
+            TotalPriceFraisForfait.Location = new Point(122, 389);
             TotalPriceFraisForfait.Name = "TotalPriceFraisForfait";
-            TotalPriceFraisForfait.Size = new Size(75, 20);
+            TotalPriceFraisForfait.Size = new Size(59, 15);
             TotalPriceFraisForfait.TabIndex = 8;
             TotalPriceFraisForfait.Text = "Prix total :";
             // 
             // TotalPriceFraisHorsForfait
             // 
             TotalPriceFraisHorsForfait.AutoSize = true;
-            TotalPriceFraisHorsForfait.Location = new Point(892, 517);
+            TotalPriceFraisHorsForfait.Location = new Point(714, 389);
             TotalPriceFraisHorsForfait.Name = "TotalPriceFraisHorsForfait";
-            TotalPriceFraisHorsForfait.Size = new Size(75, 20);
+            TotalPriceFraisHorsForfait.Size = new Size(59, 15);
             TotalPriceFraisHorsForfait.TabIndex = 10;
             TotalPriceFraisHorsForfait.Text = "Prix total :";
             // 
             // FraisHorsForfaitStatus
             // 
             FraisHorsForfaitStatus.AutoSize = true;
-            FraisHorsForfaitStatus.Location = new Point(893, 539);
+            FraisHorsForfaitStatus.Location = new Point(714, 407);
             FraisHorsForfaitStatus.Name = "FraisHorsForfaitStatus";
-            FraisHorsForfaitStatus.Size = new Size(59, 20);
+            FraisHorsForfaitStatus.Size = new Size(47, 15);
             FraisHorsForfaitStatus.TabIndex = 9;
             FraisHorsForfaitStatus.Text = "Statut : ";
             // 
             // btn_deleteFF
             // 
-            btn_deleteFF.Location = new Point(352, 504);
+            btn_deleteFF.Location = new Point(308, 378);
+            btn_deleteFF.Margin = new Padding(3, 2, 3, 2);
             btn_deleteFF.Name = "btn_deleteFF";
-            btn_deleteFF.Size = new Size(253, 29);
+            btn_deleteFF.Size = new Size(221, 22);
             btn_deleteFF.TabIndex = 11;
             btn_deleteFF.Text = "Supprimer une ligne de frais forfait";
             btn_deleteFF.UseVisualStyleBackColor = true;
@@ -162,9 +173,10 @@
             // 
             // btn_UpdateFF
             // 
-            btn_UpdateFF.Location = new Point(352, 533);
+            btn_UpdateFF.Location = new Point(308, 400);
+            btn_UpdateFF.Margin = new Padding(3, 2, 3, 2);
             btn_UpdateFF.Name = "btn_UpdateFF";
-            btn_UpdateFF.Size = new Size(253, 29);
+            btn_UpdateFF.Size = new Size(221, 22);
             btn_UpdateFF.TabIndex = 12;
             btn_UpdateFF.Text = "Modifier une ligne de frais forfait";
             btn_UpdateFF.UseVisualStyleBackColor = true;
@@ -172,9 +184,10 @@
             // 
             // btn_DeleteHF
             // 
-            btn_DeleteHF.Location = new Point(1276, 513);
+            btn_DeleteHF.Location = new Point(1116, 385);
+            btn_DeleteHF.Margin = new Padding(3, 2, 3, 2);
             btn_DeleteHF.Name = "btn_DeleteHF";
-            btn_DeleteHF.Size = new Size(285, 29);
+            btn_DeleteHF.Size = new Size(249, 22);
             btn_DeleteHF.TabIndex = 13;
             btn_DeleteHF.Text = "Supprimer une ligne de frais hors forfait";
             btn_DeleteHF.UseVisualStyleBackColor = true;
@@ -182,21 +195,48 @@
             // 
             // btn_UpdateHF
             // 
-            btn_UpdateHF.Location = new Point(1276, 548);
+            btn_UpdateHF.Location = new Point(1116, 411);
+            btn_UpdateHF.Margin = new Padding(3, 2, 3, 2);
             btn_UpdateHF.Name = "btn_UpdateHF";
-            btn_UpdateHF.Size = new Size(285, 29);
+            btn_UpdateHF.Size = new Size(249, 22);
             btn_UpdateHF.TabIndex = 14;
             btn_UpdateHF.Text = "Modifier une ligne de frais hors forfait";
             btn_UpdateHF.UseVisualStyleBackColor = true;
             btn_UpdateHF.Click += btn_UpdateHF_Click;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.Image = Properties.Resources.clouds_upright_2x1;
+            pictureBox1.Location = new Point(1263, -11);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(192, 573);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 15;
+            pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.BackColor = Color.Transparent;
+            pictureBox2.Image = Properties.Resources.gsb_logo2;
+            pictureBox2.Location = new Point(43, 21);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(95, 56);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 16;
+            pictureBox2.TabStop = false;
+            // 
             // FraisForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1626, 715);
-            Controls.Add(btn_UpdateHF);
+            BackColor = SystemColors.Highlight;
+            ClientSize = new Size(1423, 536);
+            Controls.Add(pictureBox2);
+            Controls.Add(ligneFraisHFDG);
             Controls.Add(btn_DeleteHF);
+            Controls.Add(btn_UpdateHF);
+            Controls.Add(pictureBox1);
             Controls.Add(btn_UpdateFF);
             Controls.Add(btn_deleteFF);
             Controls.Add(TotalPriceFraisHorsForfait);
@@ -205,15 +245,17 @@
             Controls.Add(FraisForfaitStatus);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(ligneFraisHFDG);
             Controls.Add(btn_AddFraisHF);
             Controls.Add(btnAddFraisForfait);
             Controls.Add(LigneFraisForfaitDG);
             Controls.Add(label1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "FraisForm";
             Text = "FraisForfaitForm";
             ((System.ComponentModel.ISupportInitialize)LigneFraisForfaitDG).EndInit();
             ((System.ComponentModel.ISupportInitialize)ligneFraisHFDG).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -235,5 +277,7 @@
         private Button btn_UpdateFF;
         private Button btn_DeleteHF;
         private Button btn_UpdateHF;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
     }
 }

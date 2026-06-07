@@ -55,9 +55,9 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(399, 155);
+            label1.Location = new Point(349, 116);
             label1.Name = "label1";
-            label1.Size = new Size(126, 20);
+            label1.Size = new Size(102, 15);
             label1.TabIndex = 0;
             label1.Text = "Nom d'utilisateur:";
             // 
@@ -65,18 +65,17 @@
             // 
             txtUsername.BackColor = SystemColors.GradientInactiveCaption;
             txtUsername.BorderStyle = BorderStyle.None;
-            txtUsername.Location = new Point(522, 153);
-            txtUsername.Margin = new Padding(3, 4, 3, 4);
+            txtUsername.Location = new Point(457, 115);
             txtUsername.Name = "txtUsername";
-            txtUsername.Size = new Size(114, 20);
+            txtUsername.Size = new Size(100, 16);
             txtUsername.TabIndex = 1;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(424, 219);
+            label2.Location = new Point(371, 164);
             label2.Name = "label2";
-            label2.Size = new Size(101, 20);
+            label2.Size = new Size(80, 15);
             label2.TabIndex = 2;
             label2.Text = "Mot de passe:";
             // 
@@ -84,21 +83,19 @@
             // 
             txtPassword.BackColor = SystemColors.GradientInactiveCaption;
             txtPassword.BorderStyle = BorderStyle.None;
-            txtPassword.Location = new Point(522, 217);
-            txtPassword.Margin = new Padding(3, 4, 3, 4);
+            txtPassword.Location = new Point(457, 163);
             txtPassword.Name = "txtPassword";
             txtPassword.PasswordChar = '*';
-            txtPassword.Size = new Size(114, 20);
+            txtPassword.Size = new Size(100, 16);
             txtPassword.TabIndex = 3;
             // 
             // btnLogin
             // 
             btnLogin.BackColor = Color.LightBlue;
             btnLogin.Font = new Font("Swis721 BlkCn BT", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnLogin.Location = new Point(487, 307);
-            btnLogin.Margin = new Padding(3, 4, 3, 4);
+            btnLogin.Location = new Point(426, 230);
             btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(125, 40);
+            btnLogin.Size = new Size(109, 30);
             btnLogin.TabIndex = 4;
             btnLogin.Text = "Se connecter";
             btnLogin.UseVisualStyleBackColor = false;
@@ -108,10 +105,9 @@
             // 
             btnQuit.BackColor = Color.LightBlue;
             btnQuit.Font = new Font("Swis721 BlkCn BT", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnQuit.Location = new Point(487, 355);
-            btnQuit.Margin = new Padding(3, 4, 3, 4);
+            btnQuit.Location = new Point(426, 266);
             btnQuit.Name = "btnQuit";
-            btnQuit.Size = new Size(125, 39);
+            btnQuit.Size = new Size(109, 29);
             btnQuit.TabIndex = 5;
             btnQuit.Text = "Quitter";
             btnQuit.UseVisualStyleBackColor = false;
@@ -124,20 +120,18 @@
             gradientPanel1.Controls.Add(pictureBox1);
             gradientPanel1.gradientBottom = Color.FromArgb(33, 145, 245);
             gradientPanel1.gradientTop = Color.FromArgb(9, 74, 158);
-            gradientPanel1.Location = new Point(-5, -5);
-            gradientPanel1.Margin = new Padding(3, 4, 3, 4);
+            gradientPanel1.Location = new Point(-4, -4);
             gradientPanel1.Name = "gradientPanel1";
-            gradientPanel1.Size = new Size(389, 464);
+            gradientPanel1.Size = new Size(340, 348);
             gradientPanel1.TabIndex = 6;
             // 
             // pictureBox2
             // 
             pictureBox2.BackColor = Color.Transparent;
             pictureBox2.Image = Properties.Resources.gsb_logo2;
-            pictureBox2.Location = new Point(89, 145);
-            pictureBox2.Margin = new Padding(3, 4, 3, 4);
+            pictureBox2.Location = new Point(78, 109);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(109, 75);
+            pictureBox2.Size = new Size(95, 56);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 8;
             pictureBox2.TabStop = false;
@@ -148,9 +142,9 @@
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("Swis721 BlkCn BT", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(89, 43);
+            label3.Location = new Point(78, 32);
             label3.Name = "label3";
-            label3.Size = new Size(146, 29);
+            label3.Size = new Size(116, 22);
             label3.TabIndex = 7;
             label3.Text = "WELCOME TO";
             // 
@@ -158,10 +152,9 @@
             // 
             pictureBox1.BackColor = Color.Transparent;
             pictureBox1.Image = Properties.Resources.clouds_upright_2x1;
-            pictureBox1.Location = new Point(306, 4);
-            pictureBox1.Margin = new Padding(3, 4, 3, 4);
+            pictureBox1.Location = new Point(268, 3);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(109, 464);
+            pictureBox1.Size = new Size(95, 348);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -172,18 +165,18 @@
             label4.BackColor = Color.Transparent;
             label4.Font = new Font("Swis721 BlkCn BT", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.Black;
-            label4.Location = new Point(407, 37);
+            label4.Location = new Point(356, 28);
             label4.Name = "label4";
-            label4.Size = new Size(281, 29);
+            label4.Size = new Size(222, 22);
             label4.TabIndex = 9;
             label4.Text = "SIGN IN TO YOUR ACCOUNT";
             // 
             // LoginForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(697, 453);
+            ClientSize = new Size(610, 340);
             Controls.Add(label4);
             Controls.Add(gradientPanel1);
             Controls.Add(btnQuit);
@@ -193,7 +186,6 @@
             Controls.Add(txtUsername);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
             Name = "LoginForm";
             StartPosition = FormStartPosition.CenterScreen;

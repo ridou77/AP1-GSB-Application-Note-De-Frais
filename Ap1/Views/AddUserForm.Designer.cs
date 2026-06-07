@@ -42,6 +42,8 @@
             txt_BoxIdConnect = new TextBox();
             txtBox_MdpUser = new TextBox();
             btn_CreateUser = new Button();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -167,10 +169,22 @@
             btn_CreateUser.Text = "Créer l'utilisateur";
             btn_CreateUser.UseVisualStyleBackColor = true;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.Image = Properties.Resources.clouds_upright_2x1;
+            pictureBox1.Location = new Point(530, -10);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(173, 355);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 16;
+            pictureBox1.TabStop = false;
+            // 
             // AddUserForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(671, 338);
             Controls.Add(btn_CreateUser);
             Controls.Add(txtBox_MdpUser);
@@ -186,9 +200,11 @@
             Controls.Add(lbl_UserRole);
             Controls.Add(comboBox_SelectUserRole);
             Controls.Add(label1);
+            Controls.Add(pictureBox1);
             Margin = new Padding(3, 2, 3, 2);
             Name = "AddUserForm";
             Text = "AddUserForm";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -209,5 +225,6 @@
         private TextBox txt_BoxIdConnect;
         private TextBox txtBox_MdpUser;
         private Button btn_CreateUser;
+        private PictureBox pictureBox1;
     }
 }

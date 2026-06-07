@@ -39,7 +39,11 @@
             dgvFicheFrais = new DataGridView();
             btn_AddUser = new Button();
             btn_AddTypeFrais = new Button();
+            pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dgvFicheFrais).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // lblConnectedUser
@@ -52,7 +56,7 @@
             // 
             // btnAdd
             // 
-            btnAdd.Location = new Point(489, 144);
+            btnAdd.Location = new Point(414, 144);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(167, 23);
             btnAdd.TabIndex = 1;
@@ -62,7 +66,7 @@
             // 
             // btnEdit
             // 
-            btnEdit.Location = new Point(662, 144);
+            btnEdit.Location = new Point(587, 144);
             btnEdit.Name = "btnEdit";
             btnEdit.Size = new Size(106, 23);
             btnEdit.TabIndex = 2;
@@ -72,7 +76,7 @@
             // 
             // btnDelete
             // 
-            btnDelete.Location = new Point(662, 329);
+            btnDelete.Location = new Point(587, 332);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(106, 23);
             btnDelete.TabIndex = 3;
@@ -82,7 +86,7 @@
             // 
             // btnRefresh
             // 
-            btnRefresh.Location = new Point(378, 144);
+            btnRefresh.Location = new Point(302, 144);
             btnRefresh.Name = "btnRefresh";
             btnRefresh.Size = new Size(106, 23);
             btnRefresh.TabIndex = 4;
@@ -112,7 +116,7 @@
             // 
             // btnSearch
             // 
-            btnSearch.Location = new Point(160, 124);
+            btnSearch.Location = new Point(12, 174);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(84, 23);
             btnSearch.TabIndex = 7;
@@ -122,7 +126,7 @@
             // 
             // txtSearch
             // 
-            txtSearch.Location = new Point(55, 127);
+            txtSearch.Location = new Point(12, 145);
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(100, 23);
             txtSearch.TabIndex = 8;
@@ -130,11 +134,11 @@
             // dgvFicheFrais
             // 
             dgvFicheFrais.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvFicheFrais.Location = new Point(55, 173);
+            dgvFicheFrais.Location = new Point(102, 188);
             dgvFicheFrais.Name = "dgvFicheFrais";
             dgvFicheFrais.RowHeadersVisible = false;
             dgvFicheFrais.RowHeadersWidth = 51;
-            dgvFicheFrais.Size = new Size(712, 150);
+            dgvFicheFrais.Size = new Size(591, 138);
             dgvFicheFrais.TabIndex = 9;
             dgvFicheFrais.CellContentClick += dgvFicheFrais_CellContentClick;
             dgvFicheFrais.DoubleClick += dgvFicheFrais_DoubleClick;
@@ -142,7 +146,7 @@
             // 
             // btn_AddUser
             // 
-            btn_AddUser.Location = new Point(658, 28);
+            btn_AddUser.Location = new Point(639, 32);
             btn_AddUser.Margin = new Padding(3, 2, 3, 2);
             btn_AddUser.Name = "btn_AddUser";
             btn_AddUser.Size = new Size(109, 52);
@@ -153,7 +157,7 @@
             // 
             // btn_AddTypeFrais
             // 
-            btn_AddTypeFrais.Location = new Point(521, 28);
+            btn_AddTypeFrais.Location = new Point(476, 32);
             btn_AddTypeFrais.Margin = new Padding(3, 2, 3, 2);
             btn_AddTypeFrais.Name = "btn_AddTypeFrais";
             btn_AddTypeFrais.Size = new Size(132, 52);
@@ -162,26 +166,54 @@
             btn_AddTypeFrais.UseVisualStyleBackColor = true;
             btn_AddTypeFrais.Click += btn_AddTypeFrais_Click;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.Image = Properties.Resources.clouds_upright_2x1;
+            pictureBox1.Location = new Point(673, -4);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(153, 459);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 12;
+            pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.BackColor = Color.Transparent;
+            pictureBox2.Image = Properties.Resources.gsb_logo2;
+            pictureBox2.Location = new Point(60, 28);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(95, 56);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 13;
+            pictureBox2.TabStop = false;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.Highlight;
             ClientSize = new Size(800, 450);
-            Controls.Add(btn_AddTypeFrais);
+            Controls.Add(pictureBox2);
             Controls.Add(btn_AddUser);
+            Controls.Add(btnEdit);
             Controls.Add(dgvFicheFrais);
+            Controls.Add(btnDelete);
+            Controls.Add(pictureBox1);
+            Controls.Add(btn_AddTypeFrais);
             Controls.Add(txtSearch);
             Controls.Add(btnSearch);
             Controls.Add(btnExit);
             Controls.Add(btnLogout);
             Controls.Add(btnRefresh);
-            Controls.Add(btnDelete);
-            Controls.Add(btnEdit);
             Controls.Add(btnAdd);
             Controls.Add(lblConnectedUser);
+            MaximumSize = new Size(816, 489);
             Name = "MainForm";
             Text = "MainForm";
             ((System.ComponentModel.ISupportInitialize)dgvFicheFrais).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -200,5 +232,7 @@
         private DataGridView dgvFicheFrais;
         private Button btn_AddUser;
         private Button btn_AddTypeFrais;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
     }
 }
