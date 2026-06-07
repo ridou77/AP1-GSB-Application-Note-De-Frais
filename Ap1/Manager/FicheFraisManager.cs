@@ -181,109 +181,119 @@ namespace GSB_demo.Manager;
             }
         }
 
-        // Méthode pour vérifier et mettre à jour les statuts des fiches de frais
-public void UpdateAllFicheFraisStatus()
-{
-    try
+    // Méthode pour vérifier et mettre à jour les statuts des fiches de frais
+    public void UpdateAllFicheFraisStatus()
     {
-        var allFicheFrais = GetAllFicheFrais();
-        DateTime today = DateTime.Now;
-        
-        foreach (var fiche in allFicheFrais)
+        try
         {
-            DateTime moisFiche = fiche.DateCreationFicheFrais;
-            DateTime moisSuivant = moisFiche.AddMonths(1);
-            
-            // Une fiche doit être clôturée si nous sommes dans le mois suivant sa création
-            // et si au moins le 10 du mois
-            bool shouldClose = (today.Year > moisSuivant.Year || 
-                              (today.Year == moisSuivant.Year && today.Month >= moisSuivant.Month)) && 
-                              today.Day >= 10 && 
-                              fiche.Etat == FicheFrais.EtatFicheFrais.EN_COURS;
-                
-            
-            if (shouldClose)
+            var allFicheFrais = GetAllFicheFrais();
+            var ligneFraisManager = new LigneFraisManager();
+            DateTime today = DateTime.Now;
+
+            foreach (var fiche in allFicheFrais)
             {
-                var ligneFraisManager = new LigneFraisManager();
                 var lignesFraisForfait = ligneFraisManager.GetAllLignesFraisForfait(fiche.IdFicheFrais);
                 var lignesHorsForfait = ligneFraisManager.GetAllLignesFraisHF(fiche.IdFicheFrais);
-                
-                bool allValidated = true;
-                bool allRejected = true;
-                bool hasRejected = false;
-                
+
+                int totalLignes = 0;
+                int lignesAcceptees = 0;
+                int lignesRefusees = 0;
+                int lignesEnAttente = 0;
+
                 foreach (var ligne in lignesFraisForfait)
                 {
-                    if (ligne.StatusFraisFF == LigneFraisForfait.StatusFraisff.EN_ATTENTE)
+                    totalLignes++;
+
+                    if (ligne.StatusFraisFF == LigneFraisForfait.StatusFraisff.ACCEPTE)
                     {
-                        allValidated = false;
-                        allRejected = false;
+                        lignesAcceptees++;
                     }
                     else if (ligne.StatusFraisFF == LigneFraisForfait.StatusFraisff.REFUSE)
                     {
-                        allValidated = false;
-                        hasRejected = true;
+                        lignesRefusees++;
                     }
-                    else if (ligne.StatusFraisFF == LigneFraisForfait.StatusFraisff.ACCEPTE)
+                    else if (ligne.StatusFraisFF == LigneFraisForfait.StatusFraisff.EN_ATTENTE)
                     {
-                        allRejected = false;
+                        lignesEnAttente++;
                     }
                 }
-                
+
                 foreach (var ligne in lignesHorsForfait)
                 {
-                    if (ligne.StatusFraisHF == LigneFraisHF.StatusFraishf.EN_ATTENTE)
+                    totalLignes++;
+
+                    if (ligne.StatusFraisHF == LigneFraisHF.StatusFraishf.ACCEPTE)
                     {
-                        allValidated = false;
-                        allRejected = false;
+                        lignesAcceptees++;
                     }
                     else if (ligne.StatusFraisHF == LigneFraisHF.StatusFraishf.REFUSE)
                     {
-                        allValidated = false;
-                        hasRejected = true;
+                        lignesRefusees++;
                     }
-                    else if (ligne.StatusFraisHF == LigneFraisHF.StatusFraishf.ACCEPTE)
+                    else if (ligne.StatusFraisHF == LigneFraisHF.StatusFraishf.EN_ATTENTE)
                     {
-                        allRejected = false;
+                        lignesEnAttente++;
                     }
                 }
-                
+
+                if (totalLignes == 0)
+                {
+                    continue;
+                }
+
                 FicheFrais.EtatFicheFrais nouveauStatut;
-                
-                if (allValidated)
+                DateTime? dateValidation = null;
+                DateTime? dateCloture = null;
+                string? motifRefus = null;
+
+                if (lignesAcceptees == totalLignes)
                 {
                     nouveauStatut = FicheFrais.EtatFicheFrais.VALIDEE;
+                    dateValidation = today;
+                    dateCloture = today;
                 }
-                else if (allRejected)
+                else if (lignesRefusees == totalLignes)
                 {
                     nouveauStatut = FicheFrais.EtatFicheFrais.REFUSEE;
+                    dateCloture = today;
+                    motifRefus = "Toutes les lignes de frais ont été refusées.";
                 }
-                else if (hasRejected)
+                else if (lignesRefusees > 0)
                 {
                     nouveauStatut = FicheFrais.EtatFicheFrais.REFUS_PARTIEL;
+                    dateCloture = today;
+                    motifRefus = "Certaines lignes de frais ont été refusées.";
                 }
                 else
                 {
                     nouveauStatut = FicheFrais.EtatFicheFrais.EN_ATTENTE;
                 }
-                
-                UpdateFicheFraisStatus(
-                    fiche.IdFicheFrais, 
-                    nouveauStatut,
-                    nouveauStatut == FicheFrais.EtatFicheFrais.VALIDEE ? today : null,
-                    today);
+
+                if (fiche.Etat != nouveauStatut)
+                {
+                    UpdateFicheFraisStatus(
+                        fiche.IdFicheFrais,
+                        nouveauStatut,
+                        dateValidation,
+                        dateCloture,
+                        motifRefus
+                    );
+                }
             }
         }
+        catch (Exception ex)
+        {
+            MessageBox.Show(
+                $"Erreur lors de la mise à jour des statuts des fiches de frais : {ex.Message}",
+                "Erreur",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error
+            );
+        }
     }
-    catch (Exception ex)
-    {
-        MessageBox.Show($"Erreur lors de la mise à jour des statuts des fiches de frais : {ex.Message}",
-            "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-    }
-}
 
-// methode pour mettre à jour le statut d'une fiche de frais
-public bool UpdateFicheFraisStatus(int idFicheFrais, FicheFrais.EtatFicheFrais etat, 
+    // methode pour mettre à jour le statut d'une fiche de frais
+    public bool UpdateFicheFraisStatus(int idFicheFrais, FicheFrais.EtatFicheFrais etat, 
     DateTime? dateValidation = null, DateTime? dateCloture = null, string? motifRefus = null)
 {
     try

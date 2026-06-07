@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using System;
 using GSB_demo.Models;
 using GSB_demo.Utils;
 using Microsoft.VisualBasic.Logging;
@@ -38,5 +39,34 @@ namespace GSB_demo.Manager;
                     "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return typesFrais;
+        }
+
+        public bool AddTypeFrais(string libelle, decimal tarif)
+        {
+            try
+            {
+                using (var connection = DatabaseConnection.GetConnection())
+                {
+                    connection.Open();
+                    string query = @"INSERT INTO type_frais (code_type_frais, libelle_type_frais, tarif_type_frais, actif) VALUES (@Code, @Libelle, @Tarif, @Actif)";
+                    string codeTypeFrais = $"TF{DateTime.Now:yyyyMMddHHmmssfff}";
+
+                    using (var cmd = new MySqlCommand(query, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@Code", codeTypeFrais);
+                        cmd.Parameters.AddWithValue("@Libelle", libelle);
+                        cmd.Parameters.AddWithValue("@Tarif", tarif);
+                        cmd.Parameters.AddWithValue("@Actif", 1);
+
+                        return cmd.ExecuteNonQuery() > 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur lors de l'ajout du type de frais: {ex.Message}",
+                    "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
         }
     }

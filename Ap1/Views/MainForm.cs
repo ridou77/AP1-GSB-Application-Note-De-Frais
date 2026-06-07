@@ -340,7 +340,8 @@ namespace GSB_demo.Views
 
         private void btn_AddTypeFrais_Click(object sender, EventArgs e)
         {
-
+            var addTypeFraisForm = new AddTypeFraisForm();
+            addTypeFraisForm.ShowDialog(this);
         }
     }
 }

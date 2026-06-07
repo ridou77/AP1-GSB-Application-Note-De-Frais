@@ -72,6 +72,9 @@ namespace GSB_demo.Views
 
                 if (success)
                 {
+                    var ficheManager = new FicheFraisManager();
+                    ficheManager.UpdateAllFicheFraisStatus();
+
                     MessageBox.Show("La ligne de frais hors forfait a été mise à jour avec succès, " +
                         "y compris le statut.",
                         "Mise à jour réussie", MessageBoxButtons.OK, MessageBoxIcon.Information);
