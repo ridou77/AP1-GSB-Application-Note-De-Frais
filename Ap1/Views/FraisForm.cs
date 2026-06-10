@@ -95,7 +95,8 @@ namespace GSB_demo.Views
         {
             if (ficheFrais == null) return;
 
-            bool etatCloture = ficheFrais.Etat != FicheFrais.EtatFicheFrais.EN_COURS;
+            bool etatCloture = ficheFrais.Etat != FicheFrais.EtatFicheFrais.EN_COURS &&
+                               ficheFrais.Etat != FicheFrais.EtatFicheFrais.EN_ATTENTE;
 
             bool dateClotureDefined = ficheFrais.DateClotureFicheFrais != DateTime.MinValue;
 
