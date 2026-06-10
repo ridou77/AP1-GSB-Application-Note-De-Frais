@@ -181,6 +181,39 @@ namespace GSB_demo.Manager;
             }
         }
 
+        public bool UpdateFicheFraisDetails(int idFicheFrais, int idUser, DateTime dateCreationFicheFrais)
+        {
+            try
+            {
+                using (var connection = DatabaseConnection.GetConnection())
+                {
+                    connection.Open();
+
+                    string query = @"UPDATE fiche_frais
+                                     SET id_user = @id_user,
+                                         date_creation_fiche_frais = @date_creation,
+                                         date_modification_fiche_frais = @date_modification
+                                     WHERE id_fiche_frais = @id_fiche_frais";
+
+                    using (var cmd = new MySqlCommand(query, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@id_fiche_frais", idFicheFrais);
+                        cmd.Parameters.AddWithValue("@id_user", idUser);
+                        cmd.Parameters.AddWithValue("@date_creation", dateCreationFicheFrais);
+                        cmd.Parameters.AddWithValue("@date_modification", DateTime.Now);
+
+                        return cmd.ExecuteNonQuery() > 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur lors de la modification de la fiche de frais : {ex.Message}",
+                    "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
     // Méthode pour vérifier et mettre à jour les statuts des fiches de frais
     public void UpdateAllFicheFraisStatus()
     {

@@ -1,5 +1,7 @@
 using GSB_demo.Views;
 
+using GSB_demo.Views;
+
 namespace GSB_demo
 {
     internal static class Program
@@ -9,13 +11,20 @@ namespace GSB_demo
         {
             ApplicationConfiguration.Initialize();
 
-            // Afficher le formulaire de connexion
-            using (var loginForm = new LoginForm())
+            while (true)
             {
-                if (loginForm.ShowDialog() == DialogResult.OK)
+                using var loginForm = new LoginForm();
+                if (loginForm.ShowDialog() != DialogResult.OK)
                 {
-                    // Si la connexion réussit, ouvrir le formulaire principal
-                    Application.Run(new MainForm(loginForm.ConnectedUser));
+                    break;
+                }
+
+                using var mainForm = new MainForm(loginForm.ConnectedUser);
+                mainForm.ShowDialog();
+
+                if (!mainForm.LogoutRequested)
+                {
+                    break;
                 }
             }
         }

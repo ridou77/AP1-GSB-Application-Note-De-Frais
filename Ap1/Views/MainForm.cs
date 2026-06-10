@@ -1,5 +1,6 @@
 ﻿using GSB_demo.Models;
 using GSB_demo.Manager;
+using System.ComponentModel.Design;
 
 namespace GSB_demo.Views
 {
@@ -8,6 +9,7 @@ namespace GSB_demo.Views
         private FicheFraisManager FicheFraisController;
         public User connectedUser { get; private set; }
         private List<FicheFrais> allFicheFrais;
+        public bool LogoutRequested { get; private set; }
 
         public MainForm(User user)
         {
@@ -181,6 +183,7 @@ namespace GSB_demo.Views
             string searchTerm = txtSearch.Text.ToLower();
             var filteredFicheFrais = allFicheFrais.Where(p =>
                 p.IdFicheFrais.ToString().Contains(searchTerm) ||
+                (p.NomUtilisateur != null && p.NomUtilisateur.ToLower().Contains(searchTerm)) ||
                 p.Etat.ToString().ToLower().Contains(searchTerm)
             ).ToList();
 
@@ -238,13 +241,20 @@ namespace GSB_demo.Views
         {
             if (dgvFicheFrais.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Veuillez sélectionner un patient à modifier.",
+                MessageBox.Show("Veuillez sélectionner une fiche de frais à modifier.",
                     "Aucune sélection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            else
+            {
+                var fiche = (FicheFrais)dgvFicheFrais.SelectedRows[0].DataBoundItem;
 
-            MessageBox.Show("Fonctionnalité de modification en cours de développement",
-                "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                using var editFicheFraisForm = new EditFicheFraisForm(fiche);
+                if (editFicheFraisForm.ShowDialog(this) == DialogResult.OK)
+                {
+                    LoadFicheFrais();
+                }
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -294,7 +304,8 @@ namespace GSB_demo.Views
             if (MessageBox.Show("Êtes-vous sûr de vouloir vous déconnecter ?",
                 "Déconnexion", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                this.Close();
+                LogoutRequested = true;
+                Close();
             }
         }
 
